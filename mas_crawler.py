@@ -93,7 +93,7 @@ def scrape_all(conf_dict, origin):
                     if not flag:
                         raise Exception("Not valid data")
                     # mas_dict[title] = paper_dict
-                    with open(os.path.join("mas_result", generate_file_name(conf, year, str(hash(title)))) + '.json', 'w') as f:
+                    with open(os.path.join("mas_json", generate_file_name(conf, year, str(hash(title)))) + '.json', 'w') as f:
                         f.write(json.dumps(paper_dict))
                     f.close()
                     print count
