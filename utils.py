@@ -11,14 +11,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-# from pyvirtualdisplay import Display
+from pyvirtualdisplay import Display
 
 def initial(proxy=None):
     chrome_options = Options()
-    # display = Display(visible=0, size=(800, 800))
-    # display.start()
+    display = Display(visible=0, size=(800, 800))
+    display.start()
     # chrome_options.add_argument('--proxy-server=http://http-dyn.abuyun.com:9020')
-    driver = webdriver.Chrome("./chromedriver", chrome_options=chrome_options)
+    driver = webdriver.Chrome("/home/jiaxin/chromedriver", chrome_options=chrome_options)
     return driver
 
 
