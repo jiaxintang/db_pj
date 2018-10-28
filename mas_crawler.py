@@ -62,7 +62,7 @@ def crawl_mas(driver, text, dst):
     departments = get_author_departments(html)
     abstract = get_abstract(html)
     citation = get_citation(html)
-    if (not departments) or (not abstract) or (not citation):
+    if (not departments) and (not abstract) and (not citation):
         return False, {}
     paper = {}
     paper['departments'] = departments

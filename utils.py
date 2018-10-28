@@ -18,7 +18,7 @@ def initial(proxy=None):
     display = Display(visible=0, size=(800, 800))
     display.start()
     # chrome_options.add_argument('--proxy-server=http://http-dyn.abuyun.com:9020')
-    driver = webdriver.Chrome("/home/jiaxin/chromedriver", chrome_options=chrome_options)
+    driver = webdriver.Chrome("/home/apple/chromedriver", chrome_options=chrome_options)
     return driver
 
 
