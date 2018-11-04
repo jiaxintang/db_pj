@@ -2,6 +2,7 @@
 
 from selenium import webdriver
 import time
+import json
 from utils import *
 from lxml import etree
 import os
@@ -12,6 +13,10 @@ sys.setdefaultencoding('utf8')
 count = -1
 url_ = 'https://academic.microsoft.com/#/search?iq=%40abcdefg%40&q=abcdefg&filters=&from=0&sort=0'
 
+with open('failed.json', 'r') as f:
+    temp_dict = json.loads(f.read())
+f.close()
+failed = temp_dict['failed']
 
 def get_abstract(html):
     tag = html.xpath("//span[@data-bind='html: abstract']")
@@ -83,8 +88,9 @@ def scrape_all(conf_dict, origin):
             # mas_dict = {}
             for paper in titles:
                 count += 1
-                if count < origin:
-                    continue
+                # if count < origin:
+                #     continue
+		if count not in failed: continue
                 print paper
                 try:
                     title = paper['title']
